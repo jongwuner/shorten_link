@@ -1,5 +1,6 @@
 #html
 *.html
+*.pem
 
 # Logs
 logs

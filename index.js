@@ -5,11 +5,8 @@ var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser'); 
 
-// app.use(bodyParser.urlencoded({extended:true})); 
-// app.use(bodyParser.json());
 
-
-app.get('/:link', function(req, res){
+app.get('/m/:link', function(req, res){
     console.log(req.params.link);
     try{
         res.writeHead(200,{"Content-Type":"text/html"}); 
@@ -30,10 +27,10 @@ app.get('/url/shorten', function(req, res){
             while(flag){
                 flag = true;
                 var result = Math.random().toString(36).substr(2,11);
-
+                console.log("result : " + result);
                 for(var i=0; i<file_list.length; i++){
                     if(result === file_list[i].split('.')[0]){
-                        console.log();
+                        console.log("haha");
                         flag = false;
                     }
                 }
@@ -47,7 +44,8 @@ app.get('/url/shorten', function(req, res){
             }
             res.send(result);
         } catch(err){
-            res.send(err);
+            console.log("에러")
+            // res.send(err);
         }
     });
 });
